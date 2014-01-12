@@ -17,6 +17,7 @@ class Stop:
         self.lat = lat
         self.lon = lon
 
+    @staticmethod
     def from_json(json):
         return Stop(json["name"], json["id"], json["lat"], json["lon"])
 
@@ -45,10 +46,10 @@ def _query(path, params = {}):
     params["key"] = API_KEY
     url = API_BASE + path + "?" + urlencode(params)
     #print(url)
-    req = urllib.request.Request(url)
+    req = urllib2.Request(url)
 
     #try:
-    handle = urllib.request.urlopen(req)
+    handle = urllib2.urlopen(req)
     #except IOError as e:
     #    if hasattr(e, "code"):
     #        if e.code != 403:
