@@ -32,6 +32,7 @@ class Departure:
         self.realtime = realtime
         self.traction = traction
 
+    @staticmethod
     def from_json(json):
         time = json["time"]
         if time == "0":
@@ -60,7 +61,7 @@ def _query(path, params = {}):
     #            print(e.headers["www-authenticate"])
     #    return None; #TODO: Schoenere Fehlerbehandlung
 
-    return json.loads(handle.read().decode())
+    return json.loads(handle.read().decode("utf8"))
 
 def _search(query):
     json = _query(query)
