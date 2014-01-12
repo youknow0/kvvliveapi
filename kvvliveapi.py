@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # author: Clemens "Nervengift"
 
-import urllib.request
-from urllib.parse import quote_plus,urlencode
+import urllib2
+from urllib import quote_plus,urlencode
 import json
 import re
 import sys
@@ -137,4 +137,4 @@ if __name__ == "__main__":
         else:
             print("No such command. Try \"search <name>/<stop_id>/<lat> <lon>\" or \"departures <stop stop_id> [<route>]\"")
     except IOError as e:
-       print(_errorstring(e), file=sys.stderr) 
+       print(_errorstring(e))
